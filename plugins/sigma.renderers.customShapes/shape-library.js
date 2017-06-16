@@ -56,13 +56,14 @@
     }
   }
   register("square",genericDrawShape(drawSquare),genericDrawBorder(drawSquare));
-  register("openSquare",genericDrawShape(drawSquare, false),genericDrawBorder(function() {}));
+  register("imageSquare",genericDrawShape(drawSquare, false),genericDrawBorder(function() {}));
 
   var drawCircle = function(node,x,y,size,context) {
     context.arc(x,y,size,0,Math.PI*2,true);
   }
   register("circle",genericDrawShape(drawCircle),genericDrawBorder(drawCircle));
   register("openCircle",genericDrawShape(drawCircle, false),genericDrawBorder(drawCircle));
+  register("imageCircle",genericDrawShape(drawCircle, false),genericDrawBorder(function() {}));
 
   var drawDiamond = function(node,x,y,size,context) {
     context.moveTo(x-size, y);
