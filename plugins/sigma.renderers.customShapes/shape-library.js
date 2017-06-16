@@ -65,7 +65,7 @@
   var drawOpenCircle = function(node,x,y,size,context) {
     context.arc(x,y,size,0,Math.PI*2,true);
   }
-  register("open-circle",genericDrawShape(drawCircle, false),genericDrawBorder(drawOpenCircle));
+  register("openCircle",genericDrawShape(drawCircle, false),genericDrawBorder(drawOpenCircle));
 
   var drawDiamond = function(node,x,y,size,context) {
     context.moveTo(x-size, y);
