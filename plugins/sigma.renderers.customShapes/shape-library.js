@@ -21,13 +21,14 @@
    * return a shape-renderer/border-renderer
    * ----------
    */
-  var genericDrawShape = function(shapeFunc) {
+  var genericDrawShape = function(shapeFunc, fill = true) {
     return function(node,x,y,size,color,context) {
       context.fillStyle = color;
       context.beginPath();
       shapeFunc(node,x,y,size,context);
       context.closePath();
-      context.fill();
+      if (fill)
+        context.fill();
     };
   }
 
@@ -60,6 +61,11 @@
     context.arc(x,y,size,0,Math.PI*2,true);
   }
   register("circle",genericDrawShape(drawCircle),genericDrawBorder(drawCircle));
+
+  var drawOpenCircle = function(node,x,y,size,context) {
+    context.arc(x,y,size,0,Math.PI*2,true);
+  }
+  register("open-circle",genericDrawShape(drawCircle, false),genericDrawBorder(drawOpenCircle));
 
   var drawDiamond = function(node,x,y,size,context) {
     context.moveTo(x-size, y);
