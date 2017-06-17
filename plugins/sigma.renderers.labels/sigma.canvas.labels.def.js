@@ -52,7 +52,7 @@
       context.font = (settings('fontStyle') ? settings('fontStyle') + ' ' : '') +
         label.weight + ' ' +
         fontSize + 'px ' + settings('font');
-      context.fillStyle = (settings('labelColor') === 'node') ?
+      context.fillStyle = (settings('labelColor') === 'node' || label.color !== undefined) ?
         (label.color || settings('defaultNodeColor')) :
         settings('defaultLabelColor');
 
